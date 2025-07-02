@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ひだまりソリューションズ</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>ひだまりソリューションズ</h1>
+    <nav>
+      <ul>
+        <li><a href="#about">会社概要</a></li>
+        <li><a href="#services">サービス紹介</a></li>
+        <li><a href="#contact">お問い合わせ</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="about">
+      <h2>会社概要</h2>
+      <p>ひだまりソリューションズは、地域に根ざしたITソリューションを提供する企業です。</p>
+      <p>お客様の課題を丁寧にヒアリングし、最適な技術でサポートします。</p>
+    </section>
+
+    <section id="services">
+      <h2>サービス紹介</h2>
+      <div class="card-container">
+        <div class="card">
+          <img src="images/premium_photo-1747326386378-5635788ea82c.avif" alt="Web制作">
+          <h3>Web制作</h3>
+          <p>見やすく使いやすいWebサイトを構築します。</p>
+        </div>
+        <div class="card">
+          <img src="img/service.jpg" alt="ITコンサルティング">
+          <h3>ITコンサルティング</h3>
+          <p>業務改善に向けたIT戦略の提案を行います。</p>
+        </div>
+        <div class="card">
+          <img src="img/service.jpg" alt="システム開発">
+          <h3>システム開発</h3>
+          <p>業務に最適化されたオリジナルのシステムを開発します。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>お問い合わせ</h2>
+      <form>
+        <label for="name">お名前</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="email">メールアドレス</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="message">メッセージ本文</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit">送信</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 ひだまりソリューションズ</p>
+  </footer>
+</body>
+</html>
