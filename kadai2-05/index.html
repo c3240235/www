@@ -2,37 +2,57 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>配列の計算</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>変数の利用</title>
+  <style>
+    body {
+      font-family: "メイリオ", sans-serif;
+      margin: 30px;
+    }
+    h1 {
+      font-size: 20px;
+    }
+    p {
+      font-size: 16px;
+    }
+    button {
+      margin-right: 5px;
+      padding: 5px 15px;
+      font-size: 15px;
+    }
+  </style>
 </head>
 <body>
-  <h1>配列の計算</h1>
-  <p>a = [500, 980, 1200]<br>b = [10, 16, 8]</p>
+  <h1>変数の演算</h1>
+  <p>a=10、b=4の場合</p>
 
-  <div class="button-area">
-    <button onclick="multiply_0()">multiply_0()</button>
-    <button onclick="multiply_1()">multiply_1()</button>
-    <button onclick="multiply_2()">multiply_2()</button>
-  </div>
+  <button onclick="add()">足し算</button>
+  <button onclick="subtract()">引き算</button>
+  <button onclick="multiply()">掛け算</button>
+  <button onclick="divide()">割り算</button>
 
   <script>
-    let a = [500, 980, 1200];
-    let b = [10, 16, 8];
+    let a = 10;
+    let b = 4;
     let answer;
 
-    function multiply_0() {
-      answer = a[0] * b[0];
-      alert("答えは " + answer + " です。");
+    function add() {
+      answer = a + b;
+      alert("答えは" + answer + "です");
     }
 
-    function multiply_1() {
-      answer = a[1] * b[1];
-      alert("答えは " + answer + " です。");
+    function subtract() {
+      answer = a - b;
+      alert("答えは" + answer + "です");
     }
 
-    function multiply_2() {
-      answer = a[2] * b[2];
-      alert("答えは " + answer + " です。");
+    function multiply() {
+      answer = a * b;
+      alert("答えは" + answer + "です");
+    }
+
+    function divide() {
+      answer = a / b;
+      alert("答えは" + answer + "です");
     }
   </script>
 </body>
