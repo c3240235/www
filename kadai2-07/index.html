@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>人口の多い国ランキング</title>
+  <style>
+    body {
+      font-family: "Yu Gothic", sans-serif;
+    }
+    img {
+      width: 100px;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>人口の多い国ランキング</h1>
+  <ol id="countries">
+    <li>中国</li>
+    <li>インド</li>
+    <li>アメリカ</li>
+    <li>インドネシア</li>
+  </ol>
+
+  <button onclick="showFlags()">国旗で表示</button>
+
+  <script>
+    function showFlags() {
+      const items = document.getElementsByTagName("li");
+      const flags = [
+        "img/china.png",      // 中国
+        "img/india.png",      // インド
+        "img/usa.png",        // アメリカ
+        "img/indonesia"   // インドネシア
+      ];
+
+      for (let i = 0; i < items.length; i++) {
+        items[i].innerHTML = `<img src="${flags[i]}" alt="国旗">`;
+      }
+    }
+  </script>
+</body>
+</html>
