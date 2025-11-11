@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>写真の一覧</title>
+<style>
+  body {
+    font-family: sans-serif;
+  }
+  h1 {
+    font-size: 24px;
+  }
+  #photos img {
+    width: 200px;
+    height: auto;
+    margin: 5px;
+  }
+</style>
+</head>
+<body>
+
+<h1>写真の一覧</h1>
+<p>以下のボタンをクリックすると、写真が一覧表示されます。</p>
+<button id="btn">写真を表示</button>
+<div id="photos"></div>
+
+<script>
+  const btn = document.getElementById("btn");
+  const photos = document.getElementById("photos");
+
+  btn.addEventListener("click", () => {
+    const photoHTML = `
+      <"photo1.jpg">
+      <"photo2.jpg">
+      <"photo3.jpg">
+      <"photo4.jpg">
+      <"photo5.jpg">
+      <"photo6.jpg">
+      <"photo7.jpg">
+      <"photo8.jpg">
+    `;
+    photos.insertAdjacentHTML("beforeend", photoHTML);
+    btn.remove(); // ボタンを削除
+  });
+</script>
+
+</body>
+</html>
