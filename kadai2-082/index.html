@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>入場料の一覧</title>
+<style>
+  body {
+    font-family: sans-serif;
+  }
+  h1 {
+    font-size: 28px;
+  }
+  table {
+    border-collapse: collapse;
+    width: 60%;
+  }
+  th, td {
+    border: 1px solid #000;
+    padding: 8px;
+    text-align: center;
+  }
+  th {
+    background-color: #b0d0d0;
+  }
+</style>
+</head>
+<body>
+
+<h1>入場料の一覧</h1>
+<div id="tableArea"></div>
+
+<script>
+  // 各種料金設定（拡張性の高い形でオブジェクト化）
+  const prices = {
+    "大人": 800,
+    "高校生": 680,
+    "中学生": 450,
+    "小学生": 380
+  };
+
+  const maxPeople = 5; // 表示する人数の上限
+
+  const tableArea = document.getElementById("tableArea");
+
+  // テーブルを作成
+  let tableHTML = "<table>";
+
+  // ヘッダー行を作成
+  tableHTML += "<tr><th></th>";
+  for (const key in prices) {
+    tableHTML += `<th>${key}</th>`;
+  }
+  tableHTML += "</tr>";
+
+  // 各人数分の行を作成
+  for (let i = 1; i <= maxPeople; i++) {
+    tableHTML += `<tr><th>${i}人</th>`;
+    for (const key in prices) {
+      const fee = prices[key] * i;
+      tableHTML += `<td>${fee}円</td>`;
+    }
+    tableHTML += "</tr>";
+  }
+
+  tableHTML += "</table>";
+
+  // HTMLとして挿入
+  tableArea.insertAdjacentHTML("beforeend", tableHTML);
+</script>
+
+</body>
+</html>
