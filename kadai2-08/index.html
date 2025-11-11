@@ -7,9 +7,6 @@
   body {
     font-family: sans-serif;
   }
-  h1 {
-    font-size: 24px;
-  }
   #photos img {
     width: 200px;
     height: auto;
@@ -22,24 +19,24 @@
 <h1>写真の一覧</h1>
 <p>以下のボタンをクリックすると、写真が一覧表示されます。</p>
 <button id="btn">写真を表示</button>
-<div id="photo"></div>
+<div id="photos"></div>
 
 <script>
   const btn = document.getElementById("btn");
-  const photos = document.getElementById("photo");
+  const photos = document.getElementById("photos");
 
   btn.addEventListener("click", () => {
-    const photoHTML = `
-      <"photo_1.jpg">
-      <"photo_2.jpg">
-      <"photo_3.jpg">
-      <"photo_4.jpg">
-      <"photo_5.jpg">
-      <"photo_6.jpg">
-      <"photo_7.jpg">
-      <"photo_8.jpg">
-    `;
-    photos.insertAdjacentHTML("beforeend", photoHTML);
+    // HTMLとして認識させる（insertAdjacentHTMLを使う）
+    photos.insertAdjacentHTML("beforeend", `
+      <img src="photo_1.jpg">
+      <img src="photo_2.jpg">
+      <img src="photo_3.jpg">
+      <img src="photo_4.jpg">
+      <img src="photo_5.jpg">
+      <img src="photo_6.jpg">
+      <img src="photo_7.jpg">
+      <img src="photo_8.jpg">
+    `);
     btn.remove(); // ボタンを削除
   });
 </script>
