@@ -26,20 +26,19 @@
 
 <script>
   const btn = document.getElementById("btn");
-  const photos = document.getElementById("photos");
+  const photos = document.getElementById("photo");
 
   btn.addEventListener("click", () => {
-    const photos = [
-        "photo_1.jpg",
-        "photo_2.jpg",
-        "photo_3.jpg",
-        "photo_4.jpg",
-        "photo_5.jpg",
-        "photo_6.jpg",
-        "photo_7.jpg",
-        "photo_8.jpg"
-      ];
-
+    const photoHTML = `
+      <"photo_1.jpg">
+      <"photo_2.jpg">
+      <"photo_3.jpg">
+      <"photo_4.jpg">
+      <"photo_5.jpg">
+      <"photo_6.jpg">
+      <"photo_7.jpg">
+      <"photo_8.jpg">
+    `;
     photos.insertAdjacentHTML("beforeend", photoHTML);
     btn.remove(); // ボタンを削除
   });
