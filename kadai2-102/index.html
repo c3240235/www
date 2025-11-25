@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>条件分岐サンプル</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>
+    body { font-family: "Yu Gothic UI", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif; padding: 24px; }
+    h1 { margin-top: 0; }
+    .equation { font-size: 48px; margin: 24px 0; }
+    .buttons { margin: 12px 0; }
+    .buttons button { margin-right: 8px; padding: 6px 12px; }
+    #result { margin-top: 32px; font-size: 40px; color: #111; }
+    .correct { color: #0a7; font-weight: 700; }
+    .wrong { color: #d33; font-weight: 700; }
+  </style>
+</head>
+<body>
+
+<h1>問題</h1>
+<p>次の方程式を満たす解を求めなさい。解は2つあります。</p>
+
+<div class="equation">x<sup>2</sup> - 6x + 8 = 0</div>
+
+<div class="buttons">
+  <button type="button" onclick="check(1)">x = 1</button>
+  <button type="button" onclick="check(2)">x = 2</button>
+  <button type="button" onclick="check(3)">x = 3</button>
+  <button type="button" onclick="check(4)">x = 4</button>
+  <button type="button" onclick="check(5)">x = 5</button>
+</div>
+
+<div id="result"></div>
+
+<script>
+  
+
+  function check(x) {
+    const resultEl = document.getElementById("result");
+
+
+    if (x == 2 || x == 4) {
+      resultEl.textContent = "正解！";
+      resultEl.className = "correct";
+    } else {
+      resultEl.textContent = "間違い！";
+      resultEl.className = "wrong";
+    }
+  }
+</script>
+
+</body>
+</html>
