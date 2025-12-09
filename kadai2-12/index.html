@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>1〜10で割り切れる最小の数</title>
+  <style>
+    body{
+      font-family: "Yu Gothic UI","Hiragino Kaku Gothic ProN","Meiryo",sans-serif;
+      padding: 24px;
+      max-width: 760px;
+    }
+    h1{
+      font-size: 36px;
+      margin: 0 0 12px 0;
+    }
+    p.lead{
+      margin: 8px 0 18px 0;
+      line-height: 1.6;
+    }
+    button{
+      padding: 8px 12px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .result{
+      margin-top: 20px;
+      padding: 18px;
+      background: #f4cfa6; /* オレンジっぽいボックス */
+      border-radius: 4px;
+      display: inline-block;
+      min-width: 220px;
+    }
+  </style>
+</head>
+<body>
+  <h1>1〜10で割り切れる数字</h1>
+  <p class="lead">1, 2, 3, 4, 5, 6, 7, 8, 9, 10 のすべてで割り切れる最小の数を JavaScript で求める。</p>
+
+  <button id="calcBtn">結果を見る</button>
+
+  <div id="out" class="result">ここに結果が表示されます。</div>
+
+  <script>
+    // 最大公約数（GCD） - ユークリッドの互除法
+    function gcd(a, b) {
+      a = Math.abs(a);
+      b = Math.abs(b);
+      while (b !== 0) {
+        var t = a % b;
+        a = b;
+        b = t;
+      }
+      return a;
+    }
+
+    // 最小公倍数（LCM）を2つの数で求める
+    function lcm(a, b) {
+      if (a === 0 || b === 0) return 0;
+      return Math.abs(a / gcd(a, b) * b);
+    }
+
+    // 1〜n の最小公倍数を順に求める
+    function lcmRange(n) {
+      var result = 1;
+      for (var i = 1; i <= n; i++) {
+        result = lcm(result, i);
+      }
+      return result;
+    }
+
+    document.getElementById('calcBtn').addEventListener('click', function(){
+      var answer = lcmRange(10); // ここを変えれば 1〜N に対応可能
+      document.getElementById('out').textContent = '答えは ' + answer + ' です。';
+    });
+  </script>
+</body>
+</html>
