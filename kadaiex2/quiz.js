@@ -1,3 +1,4 @@
+
 const questions = [
   {
     question: "水瀬いのりの代表的な魅力は？",
@@ -6,27 +7,27 @@ const questions = [
   },
   {
     question: "水瀬いのりが演じたキャラクターは？",
-    choices: ["レム", "ミカサ", "ナミ", "釘崎野薔薇"],
+    choices: ["レム", "ナミ", "ミカサ", "胡蝶しのぶ"],
     answer: 0
   },
   {
-    question: "水瀬いのりの活動で正しいものは？",
+    question: "水瀬いのりの活動として正しいものは？",
     choices: ["声優のみ", "歌手のみ", "声優と歌手", "舞台俳優"],
     answer: 2
   },
   {
-    question: "ファンから評価されている点は？",
-    choices: ["厳しい態度", "無口", "優しさ", "ミステリアス"],
+    question: "ファンから評価されている人柄は？",
+    choices: ["厳しい", "無口", "優しい", "クール"],
     answer: 2
   },
   {
-    question: "水瀬いのりの魅力として適切でないものは？",
-    choices: ["演技力", "歌唱力", "人柄", "怖い雰囲気"],
+    question: "水瀬いのりの魅力として正しくないものは？",
+    choices: ["演技力", "歌唱力", "表現力", "怖い雰囲気"],
     answer: 3
   }
 ];
 
-let current = 0;
+let currentIndex = 0;
 let score = 0;
 
 const questionEl = document.querySelector("#question");
@@ -35,44 +36,66 @@ const resultEl = document.querySelector("#result");
 const nextBtn = document.querySelector("#next");
 const retryBtn = document.querySelector("#retry");
 
-function showQuestion() {
-  questionEl.textContent = questions[current].question;
-  choicesEl.innerHTML = "";
 
-  questions[current].choices.forEach((choice, index) => {
-    const btn = document.createElement("button");
-    btn.textContent = choice;
-    btn.addEventListener("click", () => checkAnswer(index));
-    choicesEl.appendChild(btn);
+function showQuestion() {
+  questionEl.textContent = questions[currentIndex].question;
+  choicesEl.innerHTML = "";
+  resultEl.textContent = "";
+
+  
+  questions[currentIndex].choices.forEach((choice, index) => {
+    const button = document.createElement("button");
+    button.textContent = choice;
+
+    
+    button.addEventListener("click", () => {
+      checkAnswer(index);
+    });
+
+    choicesEl.appendChild(button);
   });
 }
 
-function checkAnswer(selected) {
-  if (selected === questions[current].answer) {
-    resultEl.textContent = "正解！";
+function checkAnswer(selectedIndex) {
+  if (selectedIndex === questions[currentIndex].answer) {
+    resultEl.textContent = "⭕ 正解！";
     score++;
   } else {
-    resultEl.textContent = "不正解…";
+    resultEl.textContent = "❌ 不正解…";
   }
 }
 
-nextBtn.addEventListener("click", () => {
-  current++;
-  resultEl.textContent = "";
 
-  if (current < questions.length) {
+nextBtn.addEventListener("click", () => {
+  currentIndex++;
+
+  if (currentIndex < questions.length) {
     showQuestion();
   } else {
-    questionEl.textContent = `終了！ 正解数は ${score} / ${questions.length}`;
-    choicesEl.innerHTML = "";
+    showResult();
   }
 });
 
+
+function showResult() {
+  questionEl.textContent = `クイズ終了！ 正解数：${score} / ${questions.length}`;
+  choicesEl.innerHTML = "";
+
+  if (score === questions.length) {
+    resultEl.textContent = "🎉 あなたはいのりマスターです！";
+  } else if (score >= 3) {
+    resultEl.textContent = "✨ なかなか詳しいですね！";
+  } else {
+    resultEl.textContent = "📘 もう少し推しを勉強しましょう！";
+  }
+}
+
+
 retryBtn.addEventListener("click", () => {
-  current = 0;
+  currentIndex = 0;
   score = 0;
-  resultEl.textContent = "";
   showQuestion();
 });
+
 
 showQuestion();
