@@ -1,4 +1,3 @@
-
 const questions = [
   {
     question: "水瀬いのりの代表的な魅力は？",
@@ -7,7 +6,7 @@ const questions = [
   },
   {
     question: "水瀬いのりが演じたキャラクターは？",
-    choices: ["レム（リゼロ）", "中野美玖（五等分の花嫁）", "アスナ（ソードアートオンライン）", "ゼータ（陰の実力者になりたくて）"],
+    choices: ["レム（リゼロ）", "中野美玖（五等分の花嫁）", "アスナ（SAO）", "ゼータ（陰実）"],
     answer: 0
   },
   {
@@ -33,21 +32,16 @@ let score = 0;
 const questionEl = document.querySelector("#question");
 const choicesEl = document.querySelector("#choices");
 const resultEl = document.querySelector("#result");
-const nextBtn = document.querySelector("#next");
-const retryBtn = document.querySelector("#retry");
-
 
 function showQuestion() {
   questionEl.textContent = questions[currentIndex].question;
   choicesEl.innerHTML = "";
   resultEl.textContent = "";
 
-  
   questions[currentIndex].choices.forEach((choice, index) => {
     const button = document.createElement("button");
     button.textContent = choice;
 
-    
     button.addEventListener("click", () => {
       checkAnswer(index);
     });
@@ -57,7 +51,6 @@ function showQuestion() {
 }
 
 function checkAnswer(selectedIndex) {
-  // 正誤判定（if / else）
   if (selectedIndex === questions[currentIndex].answer) {
     resultEl.textContent = "⭕ 正解！";
     score++;
@@ -65,11 +58,11 @@ function checkAnswer(selectedIndex) {
     resultEl.textContent = "❌ 不正解…";
   }
 
-  
+  // ボタン無効化
   const buttons = document.querySelectorAll("#choices button");
   buttons.forEach(btn => btn.disabled = true);
 
-  
+  // 1秒後に自動で次の問題へ
   setTimeout(() => {
     currentIndex++;
 
@@ -80,3 +73,12 @@ function checkAnswer(selectedIndex) {
     }
   }, 1000);
 }
+
+function showResult() {
+  questionEl.textContent = "クイズ終了！";
+  choicesEl.innerHTML = "";
+  resultEl.textContent = `あなたのスコアは ${score} / ${questions.length} です`;
+}
+
+// ページ読み込み時に最初の問題を表示
+showQuestion();
