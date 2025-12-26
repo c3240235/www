@@ -1,51 +1,145 @@
 body {
-  font-family: sans-serif;
+  font-family: "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   margin: 0;
+  background-color: #f5fbff;
+  color: #333;
 }
 
+/* ===== header ===== */
 header {
-  background: #6fa8dc;
+  background-color: #6ec6ff;
   color: white;
   padding: 1rem;
 }
 
+header h1 {
+  margin: 0;
+}
+
 nav ul {
+  list-style: none;
   display: flex;
   gap: 1rem;
-  list-style: none;
+  padding: 0;
 }
 
 nav a {
   color: white;
   text-decoration: none;
+  font-weight: bold;
 }
 
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* ===== main ===== */
+main {
+  padding: 1rem;
+}
+
+section > h2 {
+  border-left: 6px solid #4fa3d1;
+  padding-left: 0.5rem;
+}
+
+/* ===== card ===== */
 .card-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
-  padding: 1rem;
+  gap: 1.2rem;
+  justify-content: center;
 }
 
 .card {
+  background-color: white;
   width: 300px;
-  border: 1px solid #ccc;
+  border-radius: 10px;
   padding: 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
 }
 
-button:hover {
-  background-color: #6fa8dc;
+.card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.card h3 {
+  color: #4fa3d1;
+}
+
+/* ===== list ===== */
+.card ul {
+  padding-left: 1.2rem;
+}
+
+.card li {
+  margin-bottom: 0.3rem;
+}
+
+/* ===== quiz ===== */
+#quiz {
+  max-width: 500px;
+  margin: auto;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+#choices button {
+  display: block;
+  width: 100%;
+  margin: 0.5rem 0;
+  padding: 0.6rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #6ec6ff;
   color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
+#choices button:hover {
+  background-color: #4fa3d1;
+}
+
+#next,
+#retry {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #4fa3d1;
+  color: white;
+  cursor: pointer;
+}
+
+#next:hover,
+#retry:hover {
+  opacity: 0.8;
+}
+
+/* ===== footer ===== */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #6ec6ff;
+  color: white;
+  margin-top: 2rem;
+}
+
+/* ===== responsive ===== */
 @media (max-width: 600px) {
   .card-list {
     flex-direction: column;
+    align-items: center;
   }
 }
+
