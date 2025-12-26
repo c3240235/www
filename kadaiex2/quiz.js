@@ -57,45 +57,26 @@ function showQuestion() {
 }
 
 function checkAnswer(selectedIndex) {
+  // 正誤判定（if / else）
   if (selectedIndex === questions[currentIndex].answer) {
     resultEl.textContent = "⭕ 正解！";
     score++;
   } else {
     resultEl.textContent = "❌ 不正解…";
   }
+
+  
+  const buttons = document.querySelectorAll("#choices button");
+  buttons.forEach(btn => btn.disabled = true);
+
+  
+  setTimeout(() => {
+    currentIndex++;
+
+    if (currentIndex < questions.length) {
+      showQuestion();
+    } else {
+      showResult();
+    }
+  }, 1000);
 }
-
-
-nextBtn.addEventListener("click", () => {
-  currentIndex++;
-
-  if (currentIndex < questions.length) {
-    showQuestion();
-  } else {
-    showResult();
-  }
-});
-
-
-function showResult() {
-  questionEl.textContent = `クイズ終了！ 正解数：${score} / ${questions.length}`;
-  choicesEl.innerHTML = "";
-
-  if (score === questions.length) {
-    resultEl.textContent = "🎉 あなたはいのりマスターです！";
-  } else if (score >= 3) {
-    resultEl.textContent = "✨ なかなか詳しいですね！";
-  } else {
-    resultEl.textContent = "📘 もう少し推しを勉強しましょう！";
-  }
-}
-
-
-retryBtn.addEventListener("click", () => {
-  currentIndex = 0;
-  score = 0;
-  showQuestion();
-});
-
-
-showQuestion();
