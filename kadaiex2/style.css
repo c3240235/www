@@ -1,51 +1,138 @@
+/* =========================
+   全体設定（スマホ基準）
+========================= */
+* {
+  box-sizing: border-box;
+}
+
 body {
-  font-family: sans-serif;
   margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: linear-gradient(180deg, #e6f6ff, #ffffff);
+  color: #003049;
 }
 
-header {
-  background: #6fa8dc;
-  color: white;
-  padding: 1rem;
+/* =========================
+   メインレイアウト
+========================= */
+main {
+  padding: 16px;
 }
 
-nav ul {
+/* タイトル */
+h1 {
+  text-align: center;
+  font-size: 6vw;
+  color: #0077b6;
+  margin-bottom: 16px;
+}
+
+/* =========================
+   クイズカード
+========================= */
+section {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* =========================
+   問題文
+========================= */
+#question {
+  font-size: 4.5vw;
+  font-weight: bold;
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+/* =========================
+   選択肢
+========================= */
+#choices {
   display: flex;
-  gap: 1rem;
-  list-style: none;
+  flex-direction: column;
+  gap: 12px;
 }
 
-nav a {
-  color: white;
-  text-decoration: none;
+#choices button {
+  font-size: 4vw;
+  padding: 16px;
+  border-radius: 14px;
+  border: none;
+  background: #90dbf4;
+  color: #003049;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
 }
 
-.card-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  padding: 1rem;
+/* ホバー（PCでもOK） */
+#choices button:hover {
+  background: #48cae4;
+  transform: scale(1.03);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
-.card {
-  width: 300px;
-  border: 1px solid #ccc;
-  padding: 1rem;
-  transition: transform 0.3s, box-shadow 0.3s;
+/* 押せなくなった状態 */
+#choices button:disabled {
+  opacity: 0.6;
+  transform: none;
+  box-shadow: none;
 }
 
-.card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+/* =========================
+   正誤表示
+========================= */
+#result {
+  margin-top: 16px;
+  font-size: 4vw;
+  text-align: center;
+  font-weight: bold;
 }
 
-button:hover {
-  background-color: #6fa8dc;
-  color: white;
+/* =========================
+   結果表示（JSでinnerHTMLを書き換える想定）
+========================= */
+.result-title {
+  font-size: 5vw;
+  color: #0077b6;
+  margin-bottom: 12px;
 }
 
-@media (max-width: 600px) {
-  .card-list {
-    flex-direction: column;
+.result-score {
+  font-size: 4.5vw;
+  margin-bottom: 8px;
+}
+
+.result-message {
+  font-size: 4vw;
+}
+
+/* =========================
+   タブレット・PC対応
+========================= */
+@media (min-width: 768px) {
+  main {
+    max-width: 600px;
+    margin: auto;
+    padding: 32px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  #question {
+    font-size: 1.4rem;
+  }
+
+  #choices button {
+    font-size: 1.1rem;
+  }
+
+  #result,
+  .result-message {
+    font-size: 1.2rem;
   }
 }
