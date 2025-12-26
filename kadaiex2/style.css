@@ -1,6 +1,4 @@
-/* =========================
-   全体設定（スマホ基準）
-========================= */
+
 * {
   box-sizing: border-box;
 }
@@ -12,14 +10,12 @@ body {
   color: #003049;
 }
 
-/* =========================
-   メインレイアウト
-========================= */
+
 main {
   padding: 16px;
 }
 
-/* タイトル */
+
 h1 {
   text-align: center;
   font-size: 6vw;
@@ -27,9 +23,7 @@ h1 {
   margin-bottom: 16px;
 }
 
-/* =========================
-   クイズカード
-========================= */
+
 section {
   background: #ffffff;
   border-radius: 16px;
@@ -37,9 +31,7 @@ section {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
-/* =========================
-   問題文
-========================= */
+
 #question {
   font-size: 4.5vw;
   font-weight: bold;
@@ -47,9 +39,7 @@ section {
   line-height: 1.6;
 }
 
-/* =========================
-   選択肢
-========================= */
+
 #choices {
   display: flex;
   flex-direction: column;
@@ -67,23 +57,20 @@ section {
   transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
 }
 
-/* ホバー（PCでもOK） */
+
 #choices button:hover {
   background: #48cae4;
   transform: scale(1.03);
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
-/* 押せなくなった状態 */
+
 #choices button:disabled {
   opacity: 0.6;
   transform: none;
   box-shadow: none;
 }
 
-/* =========================
-   正誤表示
-========================= */
 #result {
   margin-top: 16px;
   font-size: 4vw;
@@ -91,9 +78,7 @@ section {
   font-weight: bold;
 }
 
-/* =========================
-   結果表示（JSでinnerHTMLを書き換える想定）
-========================= */
+
 .result-title {
   font-size: 5vw;
   color: #0077b6;
@@ -109,9 +94,7 @@ section {
   font-size: 4vw;
 }
 
-/* =========================
-   タブレット・PC対応
-========================= */
+
 @media (min-width: 768px) {
   main {
     max-width: 600px;
@@ -136,11 +119,9 @@ section {
     font-size: 1.2rem;
   }
 }
-/* =========================
-   タスクバー（強制表示）
-========================= */
+
 header {
-  position: fixed;     /* ← ここが重要 */
+  position: fixed;     
   top: 0;
   left: 0;
   width: 100%;
@@ -148,12 +129,12 @@ header {
   z-index: 9999;
 }
 
-/* ヘッダー分、下にずらす */
+
 main {
   margin-top: 120px;
 }
 
-/* ナビ */
+
 nav ul {
   display: flex;
   justify-content: space-around;
@@ -176,7 +157,7 @@ nav a {
   background: rgba(255,255,255,0.15);
 }
 
-/* 押しやすく */
+
 nav a:hover {
   background: rgba(255,255,255,0.3);
 }
