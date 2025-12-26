@@ -2,27 +2,46 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
+
+  <!-- ★ 画面サイズを正しく反映（超重要） -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>推し声優クイズ</title>
-  <link rel="stylesheet" href="style.css"">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header>
-  <h1>水瀬いのり クイズ</h1>
+  <h1>推し声優図鑑</h1>
   <nav>
-    <a href="index.html">図鑑に戻る</a>
+    <ul>
+      <li><a href="index.html">図鑑</a></li>
+      <li><a href="quiz.html">クイズ</a></li>
+      <li><a href="https://www.inoriminase.com/" target="_blank">公式サイト</a></li>
+      <li><a href="https://www.inorimachi.com/" target="_blank">公式ファンサイト</a></li>
+    </ul>
   </nav>
 </header>
 
 <main>
-  <section id="quiz">
-    <p id="question"></p>
-    <div id="choices"></div>
-    <p id="result"></p>
-    <button id="next">次へ</button>
-    <button id="retry">もう一度挑戦！</button>
-  </section>
+  <!-- ★ 図鑑ページとサイズを揃える -->
+  <div class="container">
+    <section id="quiz">
+      <p id="question"></p>
+      <div id="choices"></div>
+      <p id="result"></p>
+
+      <div class="quiz-buttons">
+        <button id="next">次へ</button>
+        <button id="retry">もう一度挑戦！</button>
+      </div>
+    </section>
+  </div>
 </main>
+
+<footer>
+  <p>&copy; 推し声優図鑑</p>
+</footer>
 
 <script src="quiz.js"></script>
 
