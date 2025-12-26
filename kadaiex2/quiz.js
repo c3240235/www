@@ -1,3 +1,4 @@
+
 const questions = [
   {
     question: "水瀬いのりの代表的な魅力は？",
@@ -58,14 +59,11 @@ function checkAnswer(selectedIndex) {
     resultEl.textContent = "❌ 不正解…";
   }
 
-  // ボタン無効化
   const buttons = document.querySelectorAll("#choices button");
   buttons.forEach(btn => btn.disabled = true);
 
-  // 1秒後に自動で次の問題へ
   setTimeout(() => {
     currentIndex++;
-
     if (currentIndex < questions.length) {
       showQuestion();
     } else {
@@ -77,8 +75,21 @@ function checkAnswer(selectedIndex) {
 function showResult() {
   questionEl.textContent = "クイズ終了！";
   choicesEl.innerHTML = "";
-  resultEl.textContent = `あなたのスコアは ${score} / ${questions.length} です`;
+
+  let title = "";
+
+  if (score === 5) {
+    title = "🌟 あなたは水瀬いのりマスター！";
+  } else if (score >= 3) {
+    title = "✨ あなたは水瀬いのりファン！";
+  } else {
+    title = "📘 これから水瀬いのり沼へようこそ！";
+  }
+
+  resultEl.innerHTML = `
+    スコア：${score} / ${questions.length}<br>
+    <strong>${title}</strong>
+  `;
 }
 
-// ページ読み込み時に最初の問題を表示
 showQuestion();
