@@ -17,7 +17,7 @@ const questions = [
   },
   {
     question: "水瀬いのりのラジオ作品はどれ？",
-    choices: ["水瀬いのりmusicflag", "水瀬いのりとしたい", "水瀬いのりmelodyflag", "みなせいのり町のラジオ放送局"],
+    choices: ["水瀬いのりmusicflag", "水瀬いのりとしたい", "水瀬いのりmelodyflag", "いのりまちのラジオ放送局"],
     answer: 2
   },
   {
@@ -81,7 +81,7 @@ function showResult() {
   if (score === 5) {
     title = "🌟 あなたはいのりまち町民です！";
   } else if (score >= 3) {
-    title = "✨ あなたはいのりンファンです！";
+    title = "✨ あなたはいのりんファンです！";
   } else {
     title = "📘 これからどんどん沼ってください！";
   }
