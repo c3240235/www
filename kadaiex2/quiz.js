@@ -1,8 +1,8 @@
 
 const questions = [
   {
-    question: "水瀬いのりの代表的な魅力は？",
-    choices: ["低音ボイス", "透明感のある声", "関西弁", "渋い演技"],
+    question: "水瀬いのりの声はファンの中でなにと言われている",
+    choices: ["低音ボイス", "クリスタルボイス", "デスボイス", "高音ボイス"],
     answer: 1
   },
   {
@@ -16,13 +16,13 @@ const questions = [
     answer: 2
   },
   {
-    question: "ファンから評価されている人柄は？",
-    choices: ["厳しい", "無口", "優しい", "クール"],
+    question: "水瀬いのりのラジオ作品はどれ？",
+    choices: ["水瀬いのりmusicflag", "水瀬いのりとしたい", "水瀬いのりmelodyflag", "みなせいのり町のラジオ放送局"],
     answer: 2
   },
   {
-    question: "水瀬いのりの魅力として正しくないものは？",
-    choices: ["演技力", "歌唱力", "表現力", "怖い雰囲気"],
+    question: "水瀬いのりのデビュー曲はどれ？",
+    choices: ["夢の始まり", "夢のつづき", "夢のありか", "夢のつぼみ"],
     answer: 3
   }
 ];
@@ -79,11 +79,11 @@ function showResult() {
   let title = "";
 
   if (score === 5) {
-    title = "🌟 あなたは水瀬いのりマスター！";
+    title = "🌟 あなたはいのりまち町民です！";
   } else if (score >= 3) {
-    title = "✨ あなたは水瀬いのりファン！";
+    title = "✨ あなたはいのりンファンです！";
   } else {
-    title = "📘 これから水瀬いのり沼へようこそ！";
+    title = "📘 これからどんどん沼ってください！";
   }
 
   resultEl.innerHTML = `
